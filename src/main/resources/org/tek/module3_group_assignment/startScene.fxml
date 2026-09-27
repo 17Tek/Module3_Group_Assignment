@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane fx:id="rootPane"
+      prefHeight="400.0"
+      prefWidth="600.0"
+      focusTraversable="true"
+      xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.tek.module3_group_assignment.startSceneController">
+
+</Pane>

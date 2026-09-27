@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
-public class HelloController {
+public class mazeOneController {
 
     @FXML
     private Pane rootPane;

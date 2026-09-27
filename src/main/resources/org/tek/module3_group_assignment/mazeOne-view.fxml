@@ -9,7 +9,7 @@
       focusTraversable="true"
       xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.tek.module3_group_assignment.HelloController">
+      fx:controller="org.tek.module3_group_assignment.mazeOneController">
 
    <children>
       <Rectangle fx:id="playerCar"
