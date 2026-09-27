@@ -2,9 +2,11 @@ package org.tek.module3_group_assignment;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 public class HelloController {
@@ -17,6 +19,12 @@ public class HelloController {
 
     @FXML
     public void initialize() {
+
+        Image carImage = new Image(
+                getClass().getResource("/images/car.png").toExternalForm()
+        );
+
+        playerCar.setFill(new ImagePattern(carImage));
 
         rootPane.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 
