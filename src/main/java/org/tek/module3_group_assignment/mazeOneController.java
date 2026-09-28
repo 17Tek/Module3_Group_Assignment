@@ -30,18 +30,26 @@ public class mazeOneController {
         rootPane.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 
             if (event.getCode() == KeyCode.W) {
+                playerCar.setRotate(-90);
+                playerCar.setScaleY(1);
                 playerCar.setLayoutY(playerCar.getLayoutY() - 10);
             }
 
-            if (event.getCode() == KeyCode.S) {
+            else if (event.getCode() == KeyCode.S) {
+                playerCar.setRotate(90);
+                playerCar.setScaleY(1);
                 playerCar.setLayoutY(playerCar.getLayoutY() + 10);
             }
 
-            if (event.getCode() == KeyCode.A) {
+            else if (event.getCode() == KeyCode.A) {
+                playerCar.setRotate(180);
+                playerCar.setScaleY(-1);
                 playerCar.setLayoutX(playerCar.getLayoutX() - 10);
             }
 
-            if (event.getCode() == KeyCode.D) {
+            else if (event.getCode() == KeyCode.D) {
+                playerCar.setRotate(0);
+                playerCar.setScaleY(1);
                 playerCar.setLayoutX(playerCar.getLayoutX() + 10);
             }
 
