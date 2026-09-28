@@ -11,7 +11,7 @@
       focusTraversable="true"
       xmlns="http://javafx.com/javafx/8"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.tek.module3_group_assignment.mazeOneController">
+      fx:controller="org.tek.module3_group_assignment.MazeController">
 
    <children>
       <!-- #Kaif: Maze 1 background -->
