@@ -32,12 +32,10 @@
                           mnemonicParsing="false" opacity="1.0"
                           prefHeight="25.0" prefWidth="99.0"
                           text="Start" onAction="#easyMazeButton" />
-
                </children>
             </Pane>
          </content>
       </Tab>
-
 
       <Tab fx:id="maze2Tab" text="Maze 2">
          <content>
@@ -55,7 +53,6 @@
                           mnemonicParsing="false" opacity="1.0"
                           prefHeight="25.0" prefWidth="99.0"
                           text="Start" onAction="#hardMazeButton" />
-
                </children>
             </Pane>
          </content>
