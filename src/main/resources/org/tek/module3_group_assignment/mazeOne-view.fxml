@@ -21,7 +21,7 @@
               preserveRatio="false"
               mouseTransparent="true">
          <image>
-            <Image url="@/images/maze.png" />
+            <Image url="@../../../images/maze.png" />
          </image>
       </ImageView>
 
