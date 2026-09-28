@@ -50,6 +50,7 @@
       <Tab fx:id="maze2Tab" text="Maze 2">
          <content>
          <fx:include fx:id="mazeTwo" source="mazeTwo-view.fxml"/>
+         </content>
       </Tab>
 
    </tabs>
