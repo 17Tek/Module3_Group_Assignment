@@ -3,6 +3,7 @@ package org.tek.module3_group_assignment;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -28,19 +29,19 @@ public class mazeOneController {
 
         rootPane.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
 
-            if (event.getCode() == KeyCode.UP) {
+            if (event.getCode() == KeyCode.W) {
                 playerCar.setLayoutY(playerCar.getLayoutY() - 10);
             }
 
-            if (event.getCode() == KeyCode.DOWN) {
+            if (event.getCode() == KeyCode.S) {
                 playerCar.setLayoutY(playerCar.getLayoutY() + 10);
             }
 
-            if (event.getCode() == KeyCode.LEFT) {
+            if (event.getCode() == KeyCode.A) {
                 playerCar.setLayoutX(playerCar.getLayoutX() - 10);
             }
 
-            if (event.getCode() == KeyCode.RIGHT) {
+            if (event.getCode() == KeyCode.D) {
                 playerCar.setLayoutX(playerCar.getLayoutX() + 10);
             }
 
