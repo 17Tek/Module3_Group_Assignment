@@ -1,14 +1,11 @@
 package org.tek.module3_group_assignment;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.Pane;
 
 public class startSceneController {
 
@@ -16,52 +13,36 @@ public class startSceneController {
     private TabPane tabPane;
 
     @FXML
-    private Rectangle playerCar;
+    private Tab maze1Tab;
+
+    @FXML
+    private Tab maze2Tab;
+
+    // The maze views included in the tabs (fx:include fx:id="mazeOne" / "mazeTwo")
+    @FXML
+    private Pane mazeOne;
+
+    @FXML
+    private Pane mazeTwo;
 
     @FXML
     public void initialize() {
-
-        Image carImage = new Image(
-                getClass().getResource("/images/car.png").toExternalForm()
-        );
-
-        playerCar.setFill(new ImagePattern(carImage));
-
-        Platform.runLater(() -> {
-
-            Scene scene = tabPane.getScene();
-
-            scene.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-
-                // Only move the car while Maze 1 is selected
-                if (tabPane.getSelectionModel().getSelectedIndex() != 0) {
-                    return;
-                }
-
-                if (event.getCode() == KeyCode.W) {
-                    playerCar.setRotate(-90);
-                    playerCar.setScaleY(1);
-                    playerCar.setLayoutY(playerCar.getLayoutY() - 10);
-                }
-
-                if (event.getCode() == KeyCode.S) {
-                    playerCar.setRotate(90);
-                    playerCar.setScaleY(1);
-                    playerCar.setLayoutY(playerCar.getLayoutY() + 10);
-                }
-
-                if (event.getCode() == KeyCode.A) {
-                    playerCar.setRotate(180);
-                    playerCar.setScaleY(-1);
-                    playerCar.setLayoutX(playerCar.getLayoutX() - 10);
-                }
-
-                if (event.getCode() == KeyCode.D) {
-                    playerCar.setRotate(0);
-                    playerCar.setScaleY(1);
-                    playerCar.setLayoutX(playerCar.getLayoutX() + 10);
-                }
-            });
+        // When a maze tab opens, give that maze keyboard focus so W A S D work
+        tabPane.getSelectionModel().selectedItemProperty().addListener((obs, oldTab, newTab) -> {
+            if (newTab == maze1Tab) {
+                Platform.runLater(() -> mazeOne.requestFocus());
+            } else if (newTab == maze2Tab) {
+                Platform.runLater(() -> mazeTwo.requestFocus());
+            }
         });
+    }
+
+    // Easy/Hard now switch to the maze tab instead of replacing the whole scene
+    public void easyMazeButton(ActionEvent event) {
+        tabPane.getSelectionModel().select(maze1Tab);
+    }
+
+    public void hardMazeButton(ActionEvent event) {
+        tabPane.getSelectionModel().select(maze2Tab);
     }
 }
