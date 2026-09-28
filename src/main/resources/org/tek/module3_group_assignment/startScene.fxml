@@ -1,49 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="rootPane"
-      focusTraversable="true"
-      prefHeight="400.0"
-      prefWidth="432.0"
-      xmlns="http://javafx.com/javafx/8"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.tek.module3_group_assignment.startSceneController">
+<TabPane fx:id="tabPane"
+         prefHeight="430.0"
+         prefWidth="600.0"
+         tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="org.tek.module3_group_assignment.startSceneController">
+   <tabs>
 
-   <children>
+      <Tab fx:id="racerTab" text="Racer">
+         <content>
+            <Pane fx:id="rootPane" focusTraversable="true">
+               <children>
+                  <ImageView fitHeight="400.0" fitWidth="600.0"
+                             pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pixelRacer.png" />
+                     </image>
+                  </ImageView>
 
-      <ImageView fitHeight="400.0"
-                 fitWidth="600.0"
-                 pickOnBounds="true"
-                 preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pixelRacer.png" />
-         </image>
-      </ImageView>
+                  <Button fx:id="easyMazeButton" layoutX="80.0" layoutY="291.0"
+                          mnemonicParsing="false" opacity="0.0"
+                          prefHeight="25.0" prefWidth="99.0"
+                          text="easy" onAction="#easyMazeButton" />
 
-      <Button fx:id="easyMazeButton"
-              layoutX="80.0"
-              layoutY="291.0"
-              mnemonicParsing="false"
-              opacity="0.0"
-              prefHeight="25.0"
-              prefWidth="99.0"
-              text="easy"
-              onAction="#easyMazeButton" />
+                  <Button fx:id="hardMazeButton" layoutX="251.0" layoutY="291.0"
+                          mnemonicParsing="false" opacity="0.0"
+                          prefHeight="25.0" prefWidth="99.0"
+                          text="hard" onAction="#hardMazeButton" />
+               </children>
+            </Pane>
+         </content>
+      </Tab>
 
-      <Button fx:id="hardMazeButton"
-              layoutX="251.0"
-              layoutY="291.0"
-              mnemonicParsing="false"
-              opacity="0.0"
-              prefHeight="25.0"
-              prefWidth="99.0"
-              text="hard"
-              onAction="#hardMazeButton" />
+      <Tab fx:id="maze1Tab" text="Maze 1">
+         <content>
+            <Pane fx:id="maze1Pane" />
+         </content>
+      </Tab>
 
-   </children>
-</Pane>
+      <Tab fx:id="maze2Tab" text="Maze 2">
+         <content>
+            <Pane fx:id="maze2Pane" />
+         </content>
+      </Tab>
+
+   </tabs>
+</TabPane>
