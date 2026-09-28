@@ -1,10 +1,13 @@
 package org.tek.module3_group_assignment;
 
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Polyline;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -23,11 +26,23 @@ public class MazeController {
     @FXML
     private Rectangle playerCar;
 
+    @FXML
+    private ImageView droid;
+
+    @FXML
+    private Polyline solutionPath;
+
+    @FXML
+    private Label statusLabel;
+
     private Image robotImage;
     private PixelReader robotReader;
     private ImageView mazeView;
     private PixelReader mazeReader;
     private int wallColor;
+    private double startX;
+    private double startY;
+    private Timeline solveAnimation;
 
     @FXML
     public void initialize() {
@@ -36,6 +51,8 @@ public class MazeController {
         );
         robotReader = robotImage.getPixelReader();
         playerCar.setFill(new ImagePattern(robotImage));
+        startX = playerCar.getLayoutX();
+        startY = playerCar.getLayoutY();
         getMazeOneHitBox();
 
         rootPane.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
@@ -58,6 +75,34 @@ public class MazeController {
         });
 
         Platform.runLater(() -> rootPane.requestFocus());
+    }
+
+    @FXML
+    private void handleReset() {
+        if (solveAnimation != null) {
+            solveAnimation.stop();
+        }
+        playerCar.setLayoutX(startX);
+        playerCar.setLayoutY(startY);
+        playerCar.setVisible(true);
+        droid.setVisible(false);
+        solutionPath.setVisible(false);
+        statusLabel.setText("Drive with W A S D, or press Auto Solve.");
+        rootPane.requestFocus();
+    }
+
+    @FXML
+    private void handleAutoSolve() {
+        if (solveAnimation != null) {
+            solveAnimation.stop();
+        }
+        playerCar.setVisible(false);
+        droid.setVisible(true);
+        solutionPath.setVisible(true);
+        statusLabel.setText("Droid is solving the maze...");
+        solveAnimation = DroidAnimator.buildAnimation(droid, solutionPath.getPoints());
+        solveAnimation.setOnFinished(event -> statusLabel.setText("Maze completed!"));
+        solveAnimation.playFromStart();
     }
 
     private void moveRobot(double dx, double dy, int distance) {
