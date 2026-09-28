@@ -44,12 +44,22 @@
       <Tab fx:id="maze1Tab" text="Maze 1">
          <content>
             <Pane fx:id="maze1Pane" />
+
+            <ImageView fitHeight="400.0" fitWidth="600.0"
+                       pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../images/maze.png"/>
+            </ImageView>
          </content>
       </Tab>
 
       <Tab fx:id="maze2Tab" text="Maze 2">
          <content>
             <Pane fx:id="maze2Pane" />
+
+            <ImageView fitHeight="400.0" fitWidth="600.0"
+                       pickOnBounds="true" preserveRatio="true">
+               <Image url="@../../../images/maze2.png"/>
+            </ImageView>
          </content>
       </Tab>
 
