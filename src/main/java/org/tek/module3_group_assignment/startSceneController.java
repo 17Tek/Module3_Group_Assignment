@@ -1,12 +1,11 @@
 package org.tek.module3_group_assignment;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.Pane;
-
-import java.io.IOException;
 
 public class startSceneController {
 
@@ -19,17 +18,31 @@ public class startSceneController {
     @FXML
     private Tab maze2Tab;
 
-    public void easyMazeButton() throws IOException {
-        startMaze(maze1Tab, "mazeOne-view.fxml");
+    // The maze views included in the tabs (fx:include fx:id="mazeOne" / "mazeTwo")
+    @FXML
+    private Pane mazeOne;
+
+    @FXML
+    private Pane mazeTwo;
+
+    @FXML
+    public void initialize() {
+        // When a maze tab opens, give that maze keyboard focus so W A S D work
+        tabPane.getSelectionModel().selectedItemProperty().addListener((obs, oldTab, newTab) -> {
+            if (newTab == maze1Tab) {
+                Platform.runLater(() -> mazeOne.requestFocus());
+            } else if (newTab == maze2Tab) {
+                Platform.runLater(() -> mazeTwo.requestFocus());
+            }
+        });
     }
 
-    public void hardMazeButton() throws IOException {
-        startMaze(maze2Tab, "mazeTwo-view.fxml");
+    // Easy/Hard now switch to the maze tab instead of replacing the whole scene
+    public void easyMazeButton(ActionEvent event) {
+        tabPane.getSelectionModel().select(maze1Tab);
     }
 
-    private void startMaze(Tab tab, String viewResource) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(viewResource));
-        Pane maze = loader.load();
-        tab.setContent(maze);
+    public void hardMazeButton(ActionEvent event) {
+        tabPane.getSelectionModel().select(maze2Tab);
     }
 }

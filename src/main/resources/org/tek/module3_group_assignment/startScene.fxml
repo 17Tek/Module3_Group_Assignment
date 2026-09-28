@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 
 <TabPane fx:id="tabPane"
-         prefHeight="430.0"
+         prefHeight="475.0"
          prefWidth="600.0"
          tabClosingPolicy="UNAVAILABLE"
          xmlns="http://javafx.com/javafx/8"
@@ -16,48 +16,40 @@
          fx:controller="org.tek.module3_group_assignment.startSceneController">
    <tabs>
 
-      <Tab fx:id="maze1Tab" text="Maze 1">
+      <Tab fx:id="racerTab" text="Racer">
          <content>
-            <Pane fx:id="maze1Pane">
+            <Pane fx:id="rootPane" focusTraversable="true">
                <children>
-
                   <ImageView fitHeight="400.0" fitWidth="600.0"
                              pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/maze.png"/>
+                        <Image url="@../../../images/pixelRacer.png" />
                      </image>
                   </ImageView>
 
-                  <Button fx:id="maze1Button" layoutX="80.0" layoutY="291.0"
-                          mnemonicParsing="false" opacity="1.0"
+                  <Button fx:id="easyMazeButton" layoutX="80.0" layoutY="291.0"
+                          mnemonicParsing="false" opacity="0.0"
                           prefHeight="25.0" prefWidth="99.0"
-                          text="Start" onAction="#easyMazeButton" />
+                          text="easy" onAction="#easyMazeButton" />
 
+                  <Button fx:id="hardMazeButton" layoutX="251.0" layoutY="291.0"
+                          mnemonicParsing="false" opacity="0.0"
+                          prefHeight="25.0" prefWidth="99.0"
+                          text="hard" onAction="#hardMazeButton" />
                </children>
             </Pane>
          </content>
       </Tab>
 
+      <Tab fx:id="maze1Tab" text="Maze 1">
+         <content>
+             <fx:include fx:id="mazeOne" source="mazeOne-view.fxml"/>
+         </content>
+      </Tab>
 
       <Tab fx:id="maze2Tab" text="Maze 2">
          <content>
-            <Pane fx:id="maze2Pane">
-               <children>
-
-                  <ImageView fitHeight="400.0" fitWidth="600.0"
-                             pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/maze2.png"/>
-                     </image>
-                  </ImageView>
-
-                  <Button fx:id="maze2Button" layoutX="80.0" layoutY="291.0"
-                          mnemonicParsing="false" opacity="1.0"
-                          prefHeight="25.0" prefWidth="99.0"
-                          text="Start" onAction="#hardMazeButton" />
-
-               </children>
-            </Pane>
+         <fx:include fx:id="mazeTwo" source="mazeTwo-view.fxml"/>
          </content>
       </Tab>
 
