@@ -4,9 +4,12 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.shape.Polyline?>
 
 <Pane fx:id="rootPane"
-      prefHeight="400.0"
+      prefHeight="440.0"
       prefWidth="600.0"
       focusTraversable="true"
       xmlns="http://javafx.com/javafx/8"
@@ -15,7 +18,7 @@
 
    <children>
       <!-- #Kaif: Maze 1 background -->
-      <ImageView
+      <ImageView fx:id="mazeImage"
               fitWidth="600.0"
               fitHeight="400.0"
               preserveRatio="false"
@@ -32,6 +35,27 @@
                  layoutY="243"
                  width="19.0"
                  fill="TRANSPARENT" />
+
+      <!-- #Elan: Droid, hidden until Auto Solve is pressed -->
+      <ImageView fx:id="droid" fitWidth="20" fitHeight="20"
+                 layoutX="2" layoutY="243"
+                 visible="false" mouseTransparent="true">
+         <image>
+            <Image url="@../../../images/robot.png" />
+         </image>
+      </ImageView>
+
+      <!-- Droid's route -->
+      <Polyline fx:id="solutionPath" visible="false"
+                points="2,243, 47,243, 47,139, 266,139, 266,87, 323,87, 323,297, 377,297, 377,196, 494,196, 494,94, 547,94, 547,223, 580,223" />
+
+      <!-- Buttons and labels -->
+      <Button text="Reset" layoutX="10" layoutY="408"
+              focusTraversable="false" onAction="#handleReset" />
+      <Button text="Auto Solve" layoutX="70" layoutY="408"
+              focusTraversable="false" onAction="#handleAutoSolve" />
+      <Label fx:id="statusLabel" layoutX="160" layoutY="412"
+             text="Drive with W A S D, or press Auto Solve." />
    </children>
 
 </Pane>
