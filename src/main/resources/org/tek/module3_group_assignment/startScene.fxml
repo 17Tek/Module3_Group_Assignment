@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -7,28 +11,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<TabPane fx:id="tabPane"
-         prefHeight="430.0"
-         prefWidth="600.0"
-         tabClosingPolicy="UNAVAILABLE"
-         xmlns="http://javafx.com/javafx/8"
-         xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="org.tek.module3_group_assignment.startSceneController">
+<TabPane fx:id="tabPane" prefHeight="497.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.tek.module3_group_assignment.startSceneController">
    <tabs>
       <Tab fx:id="maze1Tab" text="Maze 1">
          <content>
             <Pane fx:id="maze1Pane">
                <children>
-                  <ImageView fitHeight="400.0" fitWidth="600.0"
-                             pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/maze.png"/>
+                        <Image url="@../../../images/maze.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="maze1Button" layoutX="80.0" layoutY="291.0"
-                          mnemonicParsing="false" opacity="1.0"
-                          prefHeight="25.0" prefWidth="99.0"
-                          text="Start" onAction="#easyMazeButton" />
+                  <Button fx:id="maze1Button" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#easyMazeButton" opacity="1.0" prefHeight="25.0" prefWidth="99.0" text="Start" />
                </children>
             </Pane>
          </content>
@@ -38,16 +32,12 @@
          <content>
             <Pane fx:id="maze2Pane">
                <children>
-                  <ImageView fitHeight="400.0" fitWidth="600.0"
-                             pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/maze2.png"/>
+                        <Image url="@../../../images/maze2.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="maze2Button" layoutX="80.0" layoutY="291.0"
-                          mnemonicParsing="false" opacity="1.0"
-                          prefHeight="25.0" prefWidth="99.0"
-                          text="Start" onAction="#hardMazeButton" />
+                  <Button fx:id="maze2Button" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#hardMazeButton" opacity="1.0" prefHeight="25.0" prefWidth="99.0" text="Start" />
                </children>
             </Pane>
          </content>
