@@ -47,7 +47,7 @@ public class MazeController {
     @FXML
     public void initialize() {
         robotImage = new Image(
-                getClass().getResource("/images/robot.png").toExternalForm()
+                getClass().getResource("/images/car.png").toExternalForm()
         );
         robotReader = robotImage.getPixelReader();
         playerCar.setFill(new ImagePattern(robotImage));
@@ -60,12 +60,20 @@ public class MazeController {
             double dy = 0;
             if (event.getCode() == KeyCode.W) {
                 dy = -1;
+                playerCar.setRotate(-90);
+                playerCar.setScaleY(1);
             } else if (event.getCode() == KeyCode.S) {
                 dy = 1;
+                playerCar.setRotate(90);
+                playerCar.setScaleY(1);
             } else if (event.getCode() == KeyCode.A) {
                 dx = -1;
+                playerCar.setRotate(180);
+                playerCar.setScaleY(-1);
             } else if (event.getCode() == KeyCode.D) {
                 dx = 1;
+                playerCar.setRotate(0);
+                playerCar.setScaleY(1);
             } else {
                 return;
             }
